@@ -1,5 +1,4 @@
 from django.urls import include, path
-from rest_framework.authtoken import views
 from rest_framework.routers import DefaultRouter
 from api.views import PostViewSet, CommentViewSet, FollowViewSet, GroupViewSet
 from rest_framework_simplejwt.views import (
@@ -19,5 +18,5 @@ urlpatterns = [
          name='token_obtain_pair'),
     path('token/refresh/', TokenRefreshView.as_view(),
          name='token_refresh'),
-    path('', include(router.urls)),
+    path('v1/', include(router.urls)),
 ]
